@@ -59,6 +59,6 @@ Para ejecutar normal
 También se puede ejecutar
 - vendor/bin/phpunit
 
-Para ver el coverage, se va generar un directorio llamado "coverage" y al visualizar el index.html en el navegador se podrá 
+Para ver el coverage se debe tener xdebug instalado, se va generar un directorio llamado "coverage" y al visualizar el index.html en el navegador se podrá 
 ver la cobertura de las pruebas en controladores y repositorios.
 - vendor/bin/phpunit --coverage-html=coverage
