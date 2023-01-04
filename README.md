@@ -37,8 +37,9 @@ http://localhost:8000/ sin embargo puede variar.
 - php artisan serve
 
 Al ingresar a dicha ruta debera visualizarse el login directamente de la aplicación:
-el usuario es: test@test.test
-el password es: password
+
+- user: test@test.test
+- password: password
 
 Una vez autenticado pordrá visualizar el formulario para filtar actividades.
 
