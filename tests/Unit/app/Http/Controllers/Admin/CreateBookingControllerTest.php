@@ -5,6 +5,7 @@ namespace Tests\Unit\app\Http\Controllers\Admin;
 use App\Http\Requests\Booking\CreateBookingRequest;
 use App\Repositories\Interfaces\ActivityBookingRepositoryInterface;
 use Carbon\Carbon;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Mockery\LegacyMockInterface;
 use Mockery\MockInterface;
 use Tests\TestCase;
@@ -16,6 +17,8 @@ use Tests\TestCase;
  */
 class CreateBookingControllerTest extends TestCase
 {
+    use WithoutMiddleware;
+
     /**
      * @var ActivityBookingRepositoryInterface|LegacyMockInterface|MockInterface
      */

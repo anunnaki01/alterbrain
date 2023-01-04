@@ -4,6 +4,7 @@ namespace Tests\Unit\app\Http\Controllers\Admin;
 
 use App\Models\Activity;
 use App\Repositories\Interfaces\ActivityRepositoryInterface;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Mockery\LegacyMockInterface;
 use Mockery\MockInterface;
 use Tests\TestCase;
@@ -15,6 +16,8 @@ use Tests\TestCase;
  */
 class GetActivityControllerTest extends TestCase
 {
+    use WithoutMiddleware;
+
     /**
      * @var ActivityRepositoryInterface|LegacyMockInterface|MockInterface
      */

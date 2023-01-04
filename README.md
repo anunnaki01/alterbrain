@@ -7,60 +7,57 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Requerimientos del sistema
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP >= 8.0
+- MYSQL 8.0
+- composer 2.4
+- node v16.18.0
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Pasos para instalación
 
-## Learning Laravel
+Se debe clonar este repositorio y crear el fichero .env en la raíz del proyecto agregando los datos de conexión
+de base de datos en las variables.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- DB_HOST=127.0.0.1
+- DB_PORT=3306
+- DB_DATABASE=alterbrain
+- DB_USERNAME=root
+- DB_PASSWORD=password
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Se deben ejecutar los siguientes comandos para instalar dependencias, ejecutar migraciones, seeders y el npm para el vuejs3.
+- composer install
+- php artisan migrate --seed
+- npm install
+- npm run build
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Para levantar la aplicacion se debe ejecutar el comando he ingresar a la ruta con el puerto especificado por lo general es 
+http://localhost:8000/ sin embargo puede variar. 
+- php artisan serve
 
-## Laravel Sponsors
+Al ingresar a dicha ruta debera visualizarse el login directamente de la aplicación:
+el usuario es: test@test.test
+el password es: password
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Una vez autenticado pordrá visualizar el formulario para filtar actividades.
 
-### Premium Partners
+## Ejecucion de pruebas unitarias y de integración
+Este proyecto tiene pruebas unitarias y de integración tanto de los controladores
+como los repositorios.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+La diferencia de uno u otro es que las pruebas de integración prueban un todo incluyendo persistencia en la base de datos
+y las pruebas unitarias usan mocks para simular comportamientos y no solicitar conexión de base de datos.
 
-## Contributing
+Para ejecutar en paralelo
+- php artisan test --parallel
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Para ejecutar normal
+- php artisan test
 
-## Code of Conduct
+También se puede ejecutar
+- vendor/bin/phpunit
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Para ver el coverage, se va generar un directorio llamado "coverage" y al visualizar el index.html en el navegador se podrá 
+ver la cobertura de las pruebas en controladores y repositorios.
+- vendor/bin/phpunit --coverage-html=coverage

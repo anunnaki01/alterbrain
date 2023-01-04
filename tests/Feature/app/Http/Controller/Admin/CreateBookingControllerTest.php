@@ -5,6 +5,7 @@ namespace Tests\Feature\app\Http\Controller\Admin;
 use App\Models\Activity;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 
 /**
@@ -14,7 +15,8 @@ use Tests\TestCase;
  */
 class CreateBookingControllerTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithoutMiddleware;
+
     protected function setUp(): void
     {
         parent::setUp();

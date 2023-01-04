@@ -5,6 +5,7 @@ namespace Tests\Feature\app\Http\Controller\Admin;
 use App\Models\Activity;
 use App\Repositories\Interfaces\ActivityRepositoryInterface;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Mockery\LegacyMockInterface;
 use Mockery\MockInterface;
 use Tests\TestCase;
@@ -16,7 +17,7 @@ use Tests\TestCase;
  */
 class GetActivityControllerTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, WithoutMiddleware;
 
     protected function setUp(): void
     {
