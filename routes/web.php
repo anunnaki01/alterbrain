@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\Admin\ListActivitiesController;
 use App\Http\Controllers\Admin\GetActivityController;
 use App\Http\Controllers\Admin\CreateBookingController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,30 +20,32 @@ use App\Http\Controllers\Admin\CreateBookingController;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return redirect('dashboard');
+//    return Inertia::render('Welcome', [
+//        'canLogin' => Route::has('login'),
+//        'canRegister' => Route::has('register'),
+//        'laravelVersion' => Application::VERSION,
+//        'phpVersion' => PHP_VERSION,
+//    ]);
 });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'verified')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::prefix('activities')->group(function () {
+
+Route::middleware(['auth', 'verified'])->prefix('activities')->group(function () {
     Route::post('filter', [ListActivitiesController::class, '__invoke'])->name('activities.filter');
     Route::get('get/{id}', [GetActivityController::class, '__invoke'])->name('activities.get');
 });
 
-Route::prefix('bookings')->group(function () {
+Route::middleware(['auth', 'verified'])->prefix('bookings')->group(function () {
     Route::post('create', [CreateBookingController::class, '__invoke'])->name('bookings.create');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

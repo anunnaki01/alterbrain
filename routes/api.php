@@ -19,12 +19,3 @@ use App\Http\Controllers\Admin\CreateBookingController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::prefix('activities')->group(function () {
-    Route::post('filter', [ListActivitiesController::class, '__invoke'])->name('activities.filter');
-    Route::get('get/{id}', [GetActivityController::class, '__invoke'])->name('activities.get');
-});
-
-Route::prefix('bookings')->group(function () {
-    Route::post('create', [CreateBookingController::class, '__invoke'])->name('bookings.create');
-});
