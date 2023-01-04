@@ -31,7 +31,7 @@ class CreateBookingController extends Controller
             $this->bookingActivityRepository->create($request->validated());
             return response(['message' => 'Reserva creada correctamente.'], Response::HTTP_CREATED);
         } catch (\Exception $exception) {
-            return response('Ha ocurrido un error creando la reserva.', 500);
+            return response(['error' => 'Ha ocurrido un error creando la reserva.'], 500);
         }
     }
 }

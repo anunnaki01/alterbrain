@@ -27,7 +27,7 @@ class ListActivitiesController extends Controller
         try {
             return response($this->activityRepository->filter($request->get('date'), $request->get('number_people')));
         } catch (\Exception $exception) {
-            return response('Ha ocurrido un error obteniendo los registros', 500);
+            return response(['error' => 'Ha ocurrido un error obteniendo los registros'], 500);
         }
     }
 }

@@ -21,7 +21,7 @@ class ActivityFactory extends Factory
             'title' => 'Actividad '. microtime(true),
             'description' => $this->faker->text,
             'init_date' => Carbon::now()->format('Y-m-d H:i:s'),
-            'end_date' => $this->faker->dateTimeBetween('now', '+05 days'),
+            'end_date' => $this->faker->dateTimeBetween('now', '+05 days')->format('Y-m-d'),
             'price' => $this->faker->randomFloat(2, 100,500),
             'popularity' => $this->faker->randomElement([1, 2, 3, 4, 5]),
         ];

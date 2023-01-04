@@ -27,7 +27,7 @@ class GetActivityController extends Controller
         try {
             return response($this->activityRepository->get($id));
         } catch (\Exception $exception) {
-            return response('Ha ocurrido un error obteniendo la actividad', 500);
+            return response(['error' => 'Ha ocurrido un error obteniendo la actividad'], 500);
         }
     }
 }

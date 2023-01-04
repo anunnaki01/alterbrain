@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Models\Activity;
 use App\Models\ActivityBooking;
 use App\Repositories\Interfaces\ActivityBookingRepositoryInterface;
 

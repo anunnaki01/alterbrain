@@ -41,7 +41,7 @@ const getActivities = async (url) => {
     } else if (response.status === 422) {
         state.errors = response.errors
     } else {
-        state.error = response.error
+        state.error = response.error.error
     }
 }
 
@@ -80,7 +80,7 @@ const activityView = async (id) => {
         state.activity.number_people = formData.number_people
         modalView.value = true
     } else {
-        state.error = response.error
+        state.error = response.error.error
     }
 }
 
@@ -102,7 +102,7 @@ const buyActivity = async (activity) => {
     if (response.status === 201) {
         state.success = response.data.message
     } else {
-        state.error = response.error
+        state.error = response.error.error
     }
     closeModal()
     closeModalConfirm()
