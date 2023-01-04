@@ -11,6 +11,7 @@
 
 - PHP >= 8.0
 - MYSQL 8.0
+- Sqlite v3 para ejecución de pruebas
 - composer 2.4
 - node v16.18.0
 
@@ -28,6 +29,7 @@ de base de datos en las variables.
 
 Se deben ejecutar los siguientes comandos para instalar dependencias, ejecutar migraciones, seeders y el npm para el vuejs3.
 - composer install
+- php artisan key:generate
 - php artisan migrate --seed
 - npm install
 - npm run build
@@ -43,7 +45,7 @@ Al ingresar a dicha ruta debera visualizarse el login directamente de la aplicac
 
 Una vez autenticado pordrá visualizar el formulario para filtar actividades.
 
-## Ejecucion de pruebas unitarias y de integración
+## Ejecución de pruebas unitarias y de integración
 Este proyecto tiene pruebas unitarias y de integración tanto de los controladores
 como los repositorios.
 
