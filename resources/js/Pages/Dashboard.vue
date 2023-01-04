@@ -168,9 +168,8 @@ const buyActivity = async (activity) => {
                                 </label>
                                 <input type="date" v-model="formData.date"
                                        :min="getNow()"
-                                       class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full"
-                                       required>
-                                <InputMessageError v-if="state.errors.date" :errors="state.errors.date"/>
+                                       class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full">
+                                <InputMessageError v-if="state.errors.date" :error="state.errors.date[0]"/>
                             </div>
                             <div>
                                 <label for="number_people"
@@ -178,10 +177,9 @@ const buyActivity = async (activity) => {
                                     <span> N° Personas</span>
                                 </label>
                                 <input type="number" min="1" v-model="formData.number_people"
-                                       class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full"
-                                       required>
+                                       class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full">
                                 <InputMessageError v-if="state.errors.number_people"
-                                                   :errors="state.errors.number_people"/>
+                                                   :error="state.errors.number_people[0]"/>
                             </div>
                             <div>
                                 <button

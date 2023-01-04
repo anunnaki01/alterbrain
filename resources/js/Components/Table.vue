@@ -42,6 +42,9 @@ const props = defineProps({
                     <BuyButton @click="$emit('confirmBuy',row)">Comprar</BuyButton>
                 </td>
             </tr>
+            <tr class="text-center" v-if="rows.length === 0">
+                <td class="font-bold" colspan="4">No se encontraron registros...</td>
+            </tr>
             </tbody>
         </table>
     </div>

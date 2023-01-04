@@ -25,8 +25,8 @@ class FilterActivitiesRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => ['date', 'date_format:Y-m-d', 'after:' . Carbon::yesterday()->format('Y-m-d'), 'required'],
-            'number_people' => ['integer', 'required', 'min:1'],
+            'date' => [ 'required', 'date', 'date_format:Y-m-d', 'after:' . Carbon::yesterday()->format('Y-m-d'),],
+            'number_people' => ['required', 'integer', 'min:1'],
         ];
     }
 }

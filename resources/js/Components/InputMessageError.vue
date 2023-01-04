@@ -1,9 +1,9 @@
 <script setup>
-defineProps(['errors']);
+defineProps(['error']);
 </script>
 
 <template>
     <div class="mt-2">
-        <p class="text-sm text-red-600" v-for="error in errors">{{ error }}</p>
+        <p class="text-sm text-red-600" >{{ error }}</p>
     </div>
 </template>
