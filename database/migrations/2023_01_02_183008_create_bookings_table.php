@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('bookings', function (Blueprint $table) {
+        Schema::create('activity_bookings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('activity_id');
             $table->integer('number_people');
             $table->decimal('price');
-            $table->dateTime('date');
             $table->dateTime('activity_date');
             $table->timestamps();
 

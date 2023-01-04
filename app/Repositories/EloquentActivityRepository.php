@@ -20,6 +20,17 @@ class EloquentActivityRepository implements ActivityRepositoryInterface
     }
 
     /**
+     * @param int $id
+     * @return array
+     */
+    public function get(int $id): array
+    {
+        $activity = $this->activity->where('id', $id)->first();
+
+        return $activity ? $activity->toArray() : [];
+    }
+
+    /**
      * @param string $date
      * @param int $numberPeople
      * @return array

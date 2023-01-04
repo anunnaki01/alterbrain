@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Activities;
+namespace App\Http\Requests\Booking;
 
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
-class FilterActivitiesRequest extends FormRequest
+class CreateBookingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,10 @@ class FilterActivitiesRequest extends FormRequest
     public function rules()
     {
         return [
-            'date' => ['date', 'date_format:Y-m-d', 'after:' . Carbon::yesterday()->format('Y-m-d'), 'required'],
+            'activity_id' => ['required', 'exists:activities,id'],
             'number_people' => ['integer', 'required', 'min:1'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'activity_date' => ['required', 'after:' . Carbon::yesterday()->format('Y-m-d')],
         ];
     }
 }

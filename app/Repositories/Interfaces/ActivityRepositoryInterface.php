@@ -15,4 +15,10 @@ interface ActivityRepositoryInterface
      * @return array
      */
     public function filter(string $date, int $numberPeople): array;
+
+    /**
+     * @param int $id
+     * @return array
+     */
+    public function get(int $id): array;
 }
